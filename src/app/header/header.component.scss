@@ -1,0 +1,13 @@
+.title{
+    color: white;
+    background-color: #0A3D62;
+    overflow: auto;        // 清除浮动
+    box-sizing: border-box;
+    float: left;
+}
+
+.serachbar{
+    float: right;
+    overflow: auto;
+    box-sizing: border-box;
+}
