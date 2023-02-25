@@ -2,8 +2,8 @@ import { IonicModule } from '@ionic/angular';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Tab1Page } from './tab1.page';
-import { Tab1PageRoutingModule } from './tab1-routing.module';
+import { AdvancedSearchPage } from './advanced_search.page';
+import { AdvancedSearchPageRoutingModule } from './advanced_search-routing.module';
 import { HeaderComponentModule } from '../header/header.module';
 
 @NgModule({
@@ -11,11 +11,11 @@ import { HeaderComponentModule } from '../header/header.module';
     IonicModule,
     CommonModule,
     FormsModule,
-    Tab1PageRoutingModule,
+    AdvancedSearchPageRoutingModule,
     HeaderComponentModule,
   ],
   declarations: [
-    Tab1Page,
+    AdvancedSearchPage
   ],
 })
-export class Tab1PageModule {}
+export class AdvancedSearchPageModule {}

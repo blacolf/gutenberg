@@ -1,6 +1,6 @@
 .motivation{
     display: inline-block;
-    background-color: #0A3D62;
+    background-color: var(--ion-content-background-color);
     color: white;
     width: 100%;
     height: 200px;
@@ -11,10 +11,16 @@
 }
 ion-item {
     --padding-start: 10px;
-    --border-color:#0A3D62;
+    //--border-color:#0A3D62;
     border-bottom-width: 1px;
   }
-  
+
+@media (prefers-color-scheme: dark) {
+ion-item {
+    --ion-item-background: #1c1c1d;
+}
+}
+
   /* iOS places the subtitle above the title */
 ion-card-header.ios {
     display: flex;
@@ -51,7 +57,3 @@ ion-label.date{
 ion-thumbnail {
     --border-radius: 5px;
   }
-
-ion-icon.refresh{
-    margin-left: auto;
-}
