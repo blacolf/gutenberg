@@ -1,13 +1,19 @@
 .title{
     color: white;
-    background-color: #0A3D62;
-    overflow: auto;        // 清除浮动
-    box-sizing: border-box;
-    float: left;
+    text-align: left;
+    padding-left: 15px;
+    font-weight: bold;
 }
 
-.serachbar{
-    float: right;
-    overflow: auto;
-    box-sizing: border-box;
+.searchbar{
+    margin-left: auto;
+    max-width: 280px;
+}
+.searchbar.ios{
+    padding-top: 15px;
+}
+
+.toolbar{
+    display: flex;
+    justify-content: center;
 }
