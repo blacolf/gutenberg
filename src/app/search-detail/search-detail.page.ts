@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SearchService } from '../services/search.service';
 
 @Component({
   selector: 'app-search-detail',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchDetailPage implements OnInit {
 
-  constructor() { }
+  constructor(private searchService: SearchService) { }
+
+
+  keyword :string = "";
 
   ngOnInit() {
+    this.keyword = this.searchService.keyword;
   }
 
 }

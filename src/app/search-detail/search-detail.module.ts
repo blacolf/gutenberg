@@ -8,12 +8,16 @@ import { SearchDetailPageRoutingModule } from './search-detail-routing.module';
 
 import { SearchDetailPage } from './search-detail.page';
 
+import { HeaderComponentModule } from '../header/header.module';
+
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    SearchDetailPageRoutingModule
+    SearchDetailPageRoutingModule,
+    HeaderComponentModule,
   ],
   declarations: [SearchDetailPage]
 })

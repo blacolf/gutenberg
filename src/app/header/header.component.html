@@ -1,7 +1,7 @@
 <ion-header  class="toolbar">
-<ion-toolbar color="primary" type="ios">
-    <ion-title class="title" (click)="goToHome()">PROJECT.GU</ion-title>
-    <ion-searchbar class="searchbar" color="light" slot="end"></ion-searchbar>
-</ion-toolbar>
+    <ion-toolbar color="primary" type="ios">
+        <ion-title class="title" (click)="goToHome()">PROJECT.GU</ion-title>
+        <ion-searchbar class="searchbar" color="light" slot="end" [(ngModel)]="searchTerm" (keydown.enter)="searchResult()"></ion-searchbar>
+    </ion-toolbar>
 </ion-header>
 
