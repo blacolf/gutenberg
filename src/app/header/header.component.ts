@@ -23,8 +23,6 @@ export class HeaderComponent implements OnInit {
     this.searchService.keyword = this.searchTerm
     this.router.navigate(['/tabs/search-detail', {keyword:this.searchTerm}]);
   }
-  
 
   ngOnInit() {}
-  
 }

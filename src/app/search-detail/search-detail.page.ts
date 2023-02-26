@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SearchService } from '../services/search.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search-detail',
@@ -8,7 +9,11 @@ import { SearchService } from '../services/search.service';
 })
 export class SearchDetailPage implements OnInit {
 
-  constructor(private searchService: SearchService) { }
+  goToReader(){
+    this.router.navigate(['./reader'])
+  }
+
+  constructor(private searchService: SearchService, private router: Router) { }
 
 
   keyword :string = "";
