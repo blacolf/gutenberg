@@ -11,6 +11,7 @@ export class ApiService {
 
   constructor(private http:HttpClient) { }
 
+  books:any;
 
   getBooks(searchTerm: string): Observable<any> {
 

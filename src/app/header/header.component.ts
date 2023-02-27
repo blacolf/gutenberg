@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, NavigationExtras } from '@angular/router';
 import { SearchService } from '../services/search.service';
 import { ApiService } from '../services/api.service';
 
@@ -10,7 +10,7 @@ import { ApiService } from '../services/api.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private router:Router, private searchService: SearchService, private apiService:ApiService) { }
+  constructor(public router:Router, private searchService: SearchService, private apiService:ApiService) { }
 
   goToHome() {
     this.router.navigate(['/tabs/home']);
@@ -19,21 +19,28 @@ export class HeaderComponent implements OnInit {
   searchTerm : string = "";
   books:any;
 
-  searchResult() {
-    // you have the value here
+
+  keyword() {
     console.log(this.searchTerm)
-    this.searchService.keyword = this.searchTerm
+    this.searchService.keyword = this.searchTerm;
     this.router.navigate(['/tabs/search-detail', {keyword:this.searchTerm}]);
   }
 
-  search(){
-    this.apiService.getBooks(this.searchTerm).subscribe(data => {
-      this.books = data;
-      console.log(this.searchTerm);
-      console.log(this.books);
 
+  search(){
+    this.searchService.keyword = this.searchTerm;
+    this.apiService.getBooks(this.searchTerm).subscribe(data => {
+      let navigationExtras: NavigationExtras = {
+        state: {
+          books: data,
+          keyword: this.searchTerm
+        }
+      };
+      this.router.navigate(['/tabs/search-detail'], navigationExtras);
     });
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.searchService.keyword = this.searchTerm;
+  }
 }

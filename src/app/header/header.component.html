@@ -1,7 +1,34 @@
-<ion-header  class="toolbar">
+<!--<ion-header  class="toolbar">
     <ion-toolbar color="primary" type="ios">
         <ion-title class="title" (click)="goToHome()">PROJECT.GU</ion-title>
-        <ion-searchbar class="searchbar" color="light" slot="end" [(ngModel)]="searchTerm" (keydown.enter)="search()"></ion-searchbar>
+        <ion-searchbar 
+        class="searchbar" 
+        color="light" 
+        slot="end" 
+        [(ngModel)]="searchTerm" 
+        (keydown.enter)="searchResult()"></ion-searchbar>
     </ion-toolbar>
-</ion-header>
+    <ion-list>
+      <ion-item *ngFor="let result of books">
+        <ion-thumbnail slot="start">
+          <img [src]="result.image" />
+        </ion-thumbnail>
+        <ion-list>
+          <ion-text class="title">{{ result.title }}</ion-text>
+          <ion-label class="author">{{ result.auteur }}</ion-label>
+        </ion-list>
+      </ion-item>
+    </ion-list>
+</ion-header>!-->
 
+<ion-header  class="toolbar">
+  <ion-toolbar color="primary" type="ios">
+      <ion-title class="title" (click)="goToHome()">PROJECT.GU</ion-title>
+      <ion-searchbar 
+      class="searchbar" 
+      color="light" 
+      slot="end" 
+      [(ngModel)]="searchTerm" 
+      (keydown.enter)="keyword()"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>

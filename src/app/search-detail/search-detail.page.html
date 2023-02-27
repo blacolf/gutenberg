@@ -1,8 +1,24 @@
 <app-header></app-header>
 
 <ion-content>
+
   <ion-label id="title" color="primary">Recherche : </ion-label>
-  <ion-label id="keyword">{{ keyword }} </ion-label>
+  <ion-label id="keyword">{{ searchTerm }} </ion-label>
+
+  <!--<ion-searchbar [(ngModel)]="searchTerm" (keydown.enter)="searchResult()"></ion-searchbar>-->
+  
+  <ion-list>
+    <ion-label>ICI</ion-label>
+    <ion-item *ngFor="let book of books">
+      <ion-thumbnail slot="start">
+        <img [src]="book.image" />
+      </ion-thumbnail>
+      <ion-list>
+        <ion-text class="title">{{ book.title }}</ion-text>
+        <ion-label class="author">{{ book.auteur }}</ion-label>
+      </ion-list>
+    </ion-item>
+  </ion-list>
 
   <ion-list>
     <ion-item>
@@ -14,96 +30,6 @@
         <ion-label class="author">Lewis Carroll</ion-label>
       </ion-list>
     </ion-item>
-    <ion-item>
-      <ion-thumbnail slot="start">
-        <img src="./assets/book/Alice's Adventures in Wonderland.jpg" />
-      </ion-thumbnail>
-      <ion-list>
-        <ion-label class="title">Alice's Adventures in Wonderland</ion-label>
-        <ion-label class="author">Lewis Carroll</ion-label>
-      </ion-list>
-    </ion-item>
-    <ion-item>
-      <ion-thumbnail slot="start">
-        <img src="./assets/book/Alice's Adventures in Wonderland.jpg" />
-      </ion-thumbnail>
-      <ion-list>
-        <ion-label class="title">Alice's Adventures in Wonderland</ion-label>
-        <ion-label class="author">Lewis Carroll</ion-label>
-      </ion-list>
-    </ion-item>
-    <ion-item>
-      <ion-thumbnail slot="start">
-        <img src="./assets/book/Alice's Adventures in Wonderland.jpg" />
-      </ion-thumbnail>
-      <ion-list>
-        <ion-label class="title">Alice's Adventures in Wonderland</ion-label>
-        <ion-label class="author">Lewis Carroll</ion-label>
-      </ion-list>
-    </ion-item>
-    <ion-item>
-      <ion-thumbnail slot="start">
-        <img src="./assets/book/Alice's Adventures in Wonderland.jpg" />
-      </ion-thumbnail>
-      <ion-list>
-        <ion-label class="title">Alice's Adventures in Wonderland</ion-label>
-        <ion-label class="author">Lewis Carroll</ion-label>
-      </ion-list>
-    </ion-item>
-    <ion-item>
-      <ion-thumbnail slot="start">
-        <img src="./assets/book/Alice's Adventures in Wonderland.jpg" />
-      </ion-thumbnail>
-      <ion-list>
-        <ion-label class="title">Alice's Adventures in Wonderland</ion-label>
-        <ion-label class="author">Lewis Carroll</ion-label>
-      </ion-list>
-    </ion-item>
-    <ion-item>
-      <ion-thumbnail slot="start">
-        <img src="./assets/book/Alice's Adventures in Wonderland.jpg" />
-      </ion-thumbnail>
-      <ion-list>
-        <ion-label class="title">Alice's Adventures in Wonderland</ion-label>
-        <ion-label class="author">Lewis Carroll</ion-label>
-      </ion-list>
-    </ion-item>
-    <ion-item>
-      <ion-thumbnail slot="start">
-        <img src="./assets/book/Alice's Adventures in Wonderland.jpg" />
-      </ion-thumbnail>
-      <ion-list>
-        <ion-label class="title">Alice's Adventures in Wonderland</ion-label>
-        <ion-label class="author">Lewis Carroll</ion-label>
-      </ion-list>
-    </ion-item>
-    <ion-item>
-      <ion-thumbnail slot="start">
-        <img src="./assets/book/Alice's Adventures in Wonderland.jpg" />
-      </ion-thumbnail>
-      <ion-list>
-        <ion-label class="title">Alice's Adventures in Wonderland</ion-label>
-        <ion-label class="author">Lewis Carroll</ion-label>
-      </ion-list>
-    </ion-item>
-    
-    <ion-item>
-      <ion-thumbnail slot="start">
-        <img src="./assets/book/Alice's Adventures in Wonderland.jpg" />
-      </ion-thumbnail>
-      <ion-list>
-        <ion-label class="title">Alice's Adventures in Wonderland</ion-label>
-        <ion-label class="author">Lewis Carroll</ion-label>
-      </ion-list>
-    </ion-item>
-    <ion-item>
-      <ion-thumbnail slot="start">
-        <img src="./assets/book/Alice's Adventures in Wonderland.jpg" />
-      </ion-thumbnail>
-      <ion-list>
-        <ion-label class="title">Alice's Adventures in Wonderland</ion-label>
-        <ion-label class="author">Lewis Carroll</ion-label>
-      </ion-list>
-    </ion-item>
   </ion-list>
+
 </ion-content>
