@@ -26,21 +26,6 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['/tabs/search-detail', {keyword:this.searchTerm}]);
   }
 
-
-  search(){
-    this.searchService.keyword = this.searchTerm;
-    this.apiService.getBooks(this.searchTerm).subscribe(data => {
-      let navigationExtras: NavigationExtras = {
-        state: {
-          books: data,
-          keyword: this.searchTerm
-        }
-      };
-      this.router.navigate(['/tabs/search-detail'], navigationExtras);
-    });
-  }
-
   ngOnInit() {
-    this.searchService.keyword = this.searchTerm;
   }
 }

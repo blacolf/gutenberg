@@ -25,20 +25,14 @@ export class SearchDetailPage implements OnInit{
   books: any;
   searchTerm: string= ''
 
-ngOnInit() {
-  this.keyword = this.searchService.keyword;
-  console.log(this.keyword)
-  this.apiService.getBooks(this.keyword).subscribe(data => {
-    this.books = data;
-  });
-    
-}
-  ngOnChange() {
-    this.keyword = this.searchService.keyword;
+  ngOnInit() {
     console.log(this.keyword)
+    this.keyword = this.searchService.keyword;
     this.apiService.getBooks(this.keyword).subscribe(data => {
       this.books = data;
+      console.log(this.books)
     });
+      
   }
 
 }

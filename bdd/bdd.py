@@ -9,7 +9,7 @@ from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 cors = CORS(app)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://blacolf:@localhost/books'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://bla:@localhost/books'
 app.app_context().push()
 db = SQLAlchemy(app)
 
@@ -29,7 +29,7 @@ db.create_all()
 
 books1 = []
 for i in range(100, 110):
-    response = requests.get(f'http://gutendex.com/books/?page{i}')
+    response = requests.get(f'http://gutendex.com/books/?={i}')
     if response.status_code == 200:
         books1 += response.json()['results']
 
@@ -37,7 +37,7 @@ for book in books1:
     book_id = book['id']
     book_titre = book['title']
     book_auteur = book['authors'][0]['name'] if book['authors'] else 'Unknown'
-    book_contenu = "https://www.gutenberg.org/files"+str(book_id)+"/"+str(book_id)+"-0.txt"
+    book_contenu = "https://www.gutenberg.org/files/"+str(book_id)+"/"+str(book_id)+"-0.txt"
     book_image = "https://www.gutenberg.org/cache/epub/"+str(book_id)+"/pg"+str(book_id)+".cover.medium.jpg"
 
     # Ajout des données à la table d'indexb

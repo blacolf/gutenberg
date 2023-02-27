@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { ReaderPage } from './reader/reader.page';
 
 const routes: Routes = [
   {
@@ -14,6 +15,10 @@ const routes: Routes = [
     path: 'reader',
     loadChildren: () => import('./reader/reader.module').then( m => m.ReaderPageModule)
   },
+  {
+    path: 'reader/:content',
+    component: ReaderPage
+  }
 ];
 @NgModule({
   imports: [

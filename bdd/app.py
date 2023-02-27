@@ -9,7 +9,7 @@ from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 cors = CORS(app)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://blacolf:@localhost/books'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://bla:@localhost/books'
 app.app_context().push()
 db = SQLAlchemy(app)
 

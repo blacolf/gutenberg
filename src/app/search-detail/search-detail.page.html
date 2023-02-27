@@ -3,19 +3,19 @@
 <ion-content>
 
   <ion-label id="title" color="primary">Recherche : </ion-label>
-  <ion-label id="keyword">{{ searchTerm }} </ion-label>
+  <ion-label id="keyword">{{ keyword }} </ion-label>
 
   <!--<ion-searchbar [(ngModel)]="searchTerm" (keydown.enter)="searchResult()"></ion-searchbar>-->
   
   <ion-list>
-    <ion-label>ICI</ion-label>
     <ion-item *ngFor="let book of books">
       <ion-thumbnail slot="start">
         <img [src]="book.image" />
       </ion-thumbnail>
       <ion-list>
-        <ion-text class="title">{{ book.title }}</ion-text>
+        <ion-text class="title">{{ book.titre }}</ion-text>
         <ion-label class="author">{{ book.auteur }}</ion-label>
+        <ion-label [routerLink]="['/reader', {content: book.contenu}]">Lire</ion-label>
       </ion-list>
     </ion-item>
   </ion-list>
