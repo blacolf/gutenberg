@@ -26,7 +26,6 @@ export class SearchDetailPage implements OnInit{
   searchTerm: string= ''
 
   ngOnInit() {
-    console.log(this.keyword)
     this.keyword = this.searchService.keyword;
     this.apiService.getBooks(this.keyword).subscribe(data => {
       this.books = data;

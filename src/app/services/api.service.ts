@@ -12,8 +12,15 @@ export class ApiService {
   constructor(private http:HttpClient) { }
 
   books:any;
+  randombook:any;
 
   getBooks(searchTerm: string): Observable<any> {
+
+    const url =  `${this.apiUrl}/?book=${searchTerm}`;
+    return this.http.get(url);
+
+  }
+  getRandomBook(searchTerm: string): Observable<any> {
 
     const url =  `${this.apiUrl}/?book=${searchTerm}`;
     return this.http.get(url);

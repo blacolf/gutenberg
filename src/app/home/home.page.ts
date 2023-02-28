@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import Swiper from 'swiper';
+import { ApiService } from '../services/api.service';
 
 
 @Component({
@@ -21,9 +22,25 @@ export class HomePage implements OnInit {
     "Born to read",
     "Take a look. Read a book!",
   ];
-  slogan = '';
 
-  constructor() { }
+
+  slogan = '';
+  randombooks:any;
+  list:string="";
+  randomBook:any = "";
+  books: { image: string, titre: string, auteur: string }[] = [];
+
+
+  refresh(){
+    this.apiService.getRandomBook("").subscribe(data => {
+      this.randombooks = data;
+      const randomIndex = Math.floor(Math.random() * this.randombooks.length);
+      this.randomBook = this.randombooks[randomIndex];
+      console.log(this.randomBook)
+    });
+  }
+
+  constructor(private apiService:ApiService) { }
 
   getRandomSlogan(){
     const index = Math.floor(Math.random()* this.slogans.length)
@@ -33,6 +50,18 @@ export class HomePage implements OnInit {
   ngOnInit() {
     //const mySwiper = new Swiper('.swiper-container');
     this.getRandomSlogan();
+
+    this.apiService.getRandomBook("").subscribe(data => {
+      this.randombooks = data;
+      const randomIndex = Math.floor(Math.random() * this.randombooks.length);
+      this.randomBook = this.randombooks[randomIndex];
+    });
+
+    this.apiService.getBooks("").subscribe(data => {
+      this.books = data;
+      console.log(this.books)
+    });
+    
   }
 
 }
