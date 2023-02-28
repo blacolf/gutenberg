@@ -54,8 +54,7 @@ def index():
                 if re.search(book, book.contenu, book.titre):
                     regex_results.append({'auteur': book.auteur,'contenu':book.contenu, 'titre': book.titre,'id': book.id})
             results = regex_results
-
-
+                     
     #return render_template('acceuil.html', results=results, book=book)
     return jsonify(results)
 

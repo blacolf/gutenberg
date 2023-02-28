@@ -22,8 +22,8 @@ export class ReaderPage implements OnInit {
     const content = this.route.snapshot.paramMap.get('content');
     this.content = content
     console.log(content)
-    //this.http.get(this.content, {responseType: 'text'})
-    this.http.get('assets/pg1513.txt', {responseType: 'text'})
+    this.http.get(this.content, {responseType: 'text'})
+    //this.http.get('assets/pg1513.txt', {responseType: 'text'})
     .subscribe((data) => {
       this.content = data;
       this.sanitizedContent = this.sanitizer.bypassSecurityTrustHtml(formatText(this.content));

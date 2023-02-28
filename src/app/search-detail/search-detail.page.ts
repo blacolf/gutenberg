@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SearchService } from '../services/search.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ApiService } from '../services/api.service';
+import { HistoryService } from '../services/history.service';
 
 @Component({
   selector: 'app-search-detail',
@@ -19,19 +20,19 @@ export class SearchDetailPage implements OnInit{
     private searchService: SearchService, 
     private router: Router, 
     private apiService:ApiService,
-    private route: ActivatedRoute) {}
+    private route: ActivatedRoute,
+    private history: HistoryService) {}
 
-  keyword :string = "";
-  books: any;
+  keyword :string = ""
+  books: any
   searchTerm: string= ''
 
   ngOnInit() {
     this.keyword = this.searchService.keyword;
     this.apiService.getBooks(this.keyword).subscribe(data => {
       this.books = data;
-      console.log(this.books)
+      this.history.searchHistory=this.books;
     });
-      
   }
 
 }

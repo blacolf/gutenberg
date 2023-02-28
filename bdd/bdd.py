@@ -37,7 +37,7 @@ for book in books1:
     book_id = book['id']
     book_titre = book['title']
     book_auteur = book['authors'][0]['name'] if book['authors'] else 'Unknown'
-    book_contenu = "https://www.gutenberg.org/files/"+str(book_id)+"/"+str(book_id)+"-0.txt"
+    book_contenu = "https://www.gutenberg.org/"+book['id']+"/"+book['id']+"-0.txt"
     book_image = "https://www.gutenberg.org/cache/epub/"+str(book_id)+"/pg"+str(book_id)+".cover.medium.jpg"
 
     # Ajout des données à la table d'indexb

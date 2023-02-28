@@ -12,7 +12,7 @@
         <ion-icon class="refresh" name="refresh-outline" (click)="refresh()"></ion-icon>
       </ion-card-title>
     </ion-card-header>
-    /<img [src]="randomBook.image" />
+    <img [src]="randomBook.image"/>
     <ion-card-header>
       <ion-card-title class="title" color="primary">{{ randomBook.titre }}</ion-card-title>
       <ion-card-subtitle>{{ randomBook.auteur }}</ion-card-subtitle>
@@ -35,7 +35,7 @@
         
         <ion-item *ngFor="let book of books | slice:0:5">
           <ion-thumbnail slot="start">
-            <img [src]="book.image" />
+            <img [src]="book.image"/>
           </ion-thumbnail>
           <ion-list>
             <ion-label class="title">{{ book.titre }}</ion-label>

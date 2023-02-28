@@ -59,7 +59,6 @@ export class HomePage implements OnInit {
 
     this.apiService.getBooks("").subscribe(data => {
       this.books = data;
-      console.log(this.books)
     });
     
   }

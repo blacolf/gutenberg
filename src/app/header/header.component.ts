@@ -19,7 +19,6 @@ export class HeaderComponent implements OnInit {
   searchTerm : string = "";
   books:any;
 
-
   keyword() {
     console.log(this.searchTerm)
     this.searchService.keyword = this.searchTerm;

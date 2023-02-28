@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { ApiService } from '../services/api.service';
+import { SearchService } from '../services/search.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-advanced_search',
@@ -6,6 +9,16 @@ import { Component } from '@angular/core';
   styleUrls: ['advanced_search.page.scss']
 })
 export class AdvancedSearchPage {
+
+  searchAuteur : string = "";
+  searchTitre : string = "";
+  books:any;
+
+  keyword() {
+    console.log(this.searchAuteur, this.searchTitre)
+    this.searchService.keyword = this.searchAuteur+this.searchTitre;
+    this.router.navigate(['/tabs/search-detail', {keyword:this.searchAuteur+this.searchTitre}]);
+  }
 
   showHiddenItems = false;
 
@@ -61,6 +74,6 @@ export class AdvancedSearchPage {
     ];
   }
 
-  constructor() {}
+  constructor(private apiService:ApiService, private router:Router, private searchService:SearchService) {}
 
 }

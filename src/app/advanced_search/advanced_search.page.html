@@ -2,30 +2,23 @@
 
 <ion-content class="regex" >
   <ion-label id="title" color="primary">Recherche Avancée</ion-label>
+  
   <ion-list>
     <ion-item>
       <ion-label position="floating">Author</ion-label>
-      <ion-input [(ngModel)]="author"></ion-input>
+      <ion-input [(ngModel)]="searchAuteur"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label position="floating">Title</ion-label>
-      <ion-input [(ngModel)]="title"></ion-input>
+      <ion-input [(ngModel)]="searchTitre"></ion-input>
     </ion-item>
+
+    <br>
+    <ion-button (click)="keyword()">Search</ion-button>
   </ion-list>
 
-  <br>
-  <ion-button (click)="onSubmit()">Search</ion-button>
-  <ion-list>
-    <ion-item *ngFor="let result of searchResults">
-      <ion-label>
-        Author: {{ result.author }}
-        <br>
-        Title: {{ result.title }}
-      </ion-label>
-    </ion-item>
-  </ion-list>
-  
+
   <br>
   <br>
   <ion-label id="title" color="primary">Recherche par RegEx</ion-label>
@@ -34,15 +27,17 @@
       <ion-label position="floating">Expression régulière</ion-label>
       <ion-input></ion-input>
     </ion-item>
+
+    <br>
+    <ion-button>Search</ion-button>
   </ion-list>
-  <br>
-  <ion-button>Search</ion-button>
+
 
 </ion-content>
 
 
 
-
+<!--
 <ion-item (click)="toggleContent()" lines="none" class="title">
   <ion-icon slot="start" [name]="contentHidden ? 'caret-forward-outline' : 'caret-down-outline'" class="hiddencontent"></ion-icon>
   <ion-label>Recherche par RegEx</ion-label>
@@ -66,6 +61,4 @@
       <ion-label>The Legend of Zelda</ion-label>
     </ion-item>
   </ion-list>
-</ion-content>
-
-
+</ion-content> -->
