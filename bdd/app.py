@@ -9,12 +9,12 @@ from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 cors = CORS(app)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://bla:@localhost/books'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:passer1234@localhost/books'
 app.app_context().push()
 db = SQLAlchemy(app)
 
 class Livre(db.Model):
-    tablename='livres'
+    tablename='livre'
     id = db.Column(db.Integer, primary_key=True)
     titre = db.Column(db.String(),nullable=False)
     contenu = db.Column(db.Text,  nullable=False)
@@ -24,40 +24,40 @@ class Livre(db.Model):
     def repr(self):
             return f'<Livre {self.id}>'
 
-@app.route('/',methods=['GET'])
+@app.route('/book',methods=['GET'])
 @cross_origin()
 
 def index():
 
-    books = []
-
-    # Récupération de la recherche de l'utilisateur
-    book = request.args.get('book')
-
+    search = request.args.get('search')
     # Recherche des livres par mot clé
     results = []
-    books = Livre.query.filter(
-        or_(Livre.titre.ilike(f'%{book}%'), Livre.auteur.ilike(f'%{book}%'))).all()
-    for book in books:
-        results.append({'auteur': book.auteur,'contenu':book.contenu, 'titre': book.titre,'id': book.id , 'image': book.image})
-
-    # Recherche des livres par regex
-    regex = "Adve[a-z]*ture"
-    regex1 = "r'^/[A-Za-z0-9]+$/'"
-    regex2 = "test*"
-
-    if re.match('Adve[a-z]*ture', str(book)):
-
-            regex_results = []
-            books = Livre.query.all()
-            for book in books:
-                if re.search(book, book.contenu, book.titre):
-                    regex_results.append({'auteur': book.auteur,'contenu':book.contenu, 'titre': book.titre,'id': book.id})
-            results = regex_results
-
-
-    #return render_template('acceuil.html', results=results, book=book)
+    books1 = Livre.query.filter(
+        or_(Livre.titre.ilike(f'%{search}%'), Livre.auteur.ilike(f'%{search}%'))).all()
+    for b1 in books1:
+        results.append({'auteur': b1.auteur, 'contenu':b1.contenu, 'titre': b1.titre, 'id': b1.id, 'image': b1.image})
     return jsonify(results)
+
+@app.route('/book/searchRegex',methods=['GET'])
+def searchRegex():
+
+    regex = request.args.get('regex')
+    regex_results = []
+
+    if re.match( 'Adve[a-z]*ture', str(regex)):
+            books2 = Livre.query.all()
+            for b2 in books2:
+                if re.search(regex,b2.contenu) or (regex, b2.titre) or (regex, b2.auteur)or (regex, b2.id):
+                    regex_results.append({'auteur': b2.auteur,
+                                          'contenu':b2.contenu,
+                                          'titre': b2.titre,
+                                          'id': b2.id,
+                                          'image': b2.image
+                                          })
+    return jsonify(regex_results)
+
+
+
 
 if __name__ == '__main__':
      app.run()
