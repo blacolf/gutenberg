@@ -15,7 +15,9 @@ export class ApiService {
 
   getBooks(searchTerm: string): Observable<any> {
 
-    const url =  `${this.apiUrl}/?book=${searchTerm}`;
+    //const url =  `${this.apiUrl}/?book=${searchTerm}`;
+    //return this.http.get(url);
+    const url = `${this.apiUrl}/book?search=${searchTerm}&method=regex`;
     return this.http.get(url);
 
   }
